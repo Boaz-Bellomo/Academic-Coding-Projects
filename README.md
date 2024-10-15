@@ -10,11 +10,11 @@ Welcome to my University Projects repository! This collection showcases my cours
 
 ### 2. Introduction to Data Analysis
 - **Overview:** Focuses on data exploration, statistical analysis, and visualization.
-- **Key Project:** **Mobile Phone Database Analysis** – A comprehensive analysis of a mobile phone database, including data cleaning, visualization, and insights.
+- **Key Project:** [Mobile Phone Database Analysis](Introduction_to_Data_Analysis/final_project) – A comprehensive analysis of a mobile phone database, including data cleaning, visualization, and insights.
 
 ### 3. Data Structures and Algorithms
 - **Overview:** Covers algorithm design and data structure implementation in Java.
-- **Key Project:** **Dynamic Graph Implementation** – A project that implements a dynamic graph in Java, showcasing advanced data structure manipulation and algorithm optimization.
+- **Key Project:** [Dynamic Graph Implementation](Data_Structures_and_Algorithms/Dynamic_Graph) – A project that implements a dynamic graph in Java, showcasing advanced data structure manipulation and algorithm optimization.
 
 ### 4. Database Management
 - **Overview:** Includes database design, SQL queries, and web integration.
