@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query Results</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Query Results</h1>
+
+        <section>
+            <h2>Query 1</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Total Sum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for investor in query1_results %}
+                        <tr>
+                            <td>{{ investor.0 }}</td> <!-- Investor Name -->
+                            <td>{{ investor.1 }}</td> <!-- Total Sum -->
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Query 2</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for company in query2_results %}
+                        <tr>
+                            <td>{{ company.0 }}</td> <!-- Company Symbol -->
+                            <td>{{ company.1 }}</td> <!-- Investor Name -->
+                            <td>{{ company.2 }}</td> <!-- Quantity of Shares -->
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Query 3</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Number of Investors</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for company in query3_results %}
+                        <tr>
+                            <td>{{ company.0 }}</td> <!-- Company Symbol -->
+                            <td>{{ company.1 }}</td> <!-- Number of Investors -->
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        
+        <div class="home-button">
+            <a href="{% url 'index' %}" class="button">Home</a>
+            <a href="{% url 'add_transaction' %}" class="button">Add a Transaction</a>
+            <a href="{% url 'BuyStocks' %}" class="button">Buy Stocks</a>
+        </div>
+    </div>
+</body>
+</html>

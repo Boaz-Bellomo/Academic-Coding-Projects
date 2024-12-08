@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buy Stocks</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Buy Stocks</h1>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <label for="id_investor">ID:</label>
+            <input type="number" id="id_investor" name="ID" required><br>
+            
+            <label for="id_company">Company:</label>
+            <input type="text" id="id_company" name="company" required><br>
+            
+            <label for="id_quantity">Quantity:</label>
+            <input type="number" id="id_quantity" name="quantity" required><br>
+            
+            <button type="submit">Submit</button>
+        </form>
+        
+        <h2>Last 10 Stock Buys</h2>
+        
+        <!-- Display error messages -->
+        {% if investorExistFlag %}
+            <h3 class="error">Investor ID does not exist</h3>
+        {% endif %}
+        
+        {% if companyExistFlag %}
+            <h3 class="error">Company symbol does not exist</h3>
+        {% endif %}
+        
+        {% if amountFlag %}
+            <h3 class="error">Not enough money for this purchase</h3>
+        {% endif %}
+        
+        {% if alreadyBoughtFlag %}
+            <h3 class="error">Investor already bought stocks from this company today</h3>
+        {% endif %}
+        
+        <!-- Display the table -->
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Investor ID</th>
+                <th>Symbol</th>
+                <th>Quantity</th>
+            </tr>
+            {% for buy in sql_res %}
+            <tr>
+                <td>{{ buy.tDate }}</td>
+                <td>{{ buy.ID }}</td>
+                <td>{{ buy.Symbol }}</td>
+                <td>{{ buy.BQuantity }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        
+        <!-- Home button -->
+        <div class="home-button">
+            <a href="{% url 'index' %}" class="button">Home</a>
+            <a href="{% url 'QueryResults' %}" class="button">Query Results</a>
+            <a href="{% url 'add_transaction' %}" class="button">Add a Transaction</a>
+        </div>
+    </div>
+</body>
+</html>
